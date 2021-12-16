@@ -1,2 +1,2 @@
-# Social-Network-On-React-Mainly-Better-Then-Facabook
+# Social-Network-On-React-Simply-Better-Then-Facebook
 My first project on react, If you want to see social network that build by one person thats it! ;-)
