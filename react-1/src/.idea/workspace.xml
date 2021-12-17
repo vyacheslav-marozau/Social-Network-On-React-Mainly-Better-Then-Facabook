@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1aaa7ef0-4f36-4c14-a4f5-a67ce523f054" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="21bcCk74OpAk2xfNDInMsvYPF4Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Dialogs/DialogItem" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\react\projects\01-first-project\react-1\src\Dialogs\DialogItem" />
+      <recent name="C:\react\projects\01-first-project\react-1\src\Dialogs\Message" />
+      <recent name="C:\react\projects\01-first-project\react-1\src\Components\Profile\ProfileInfo" />
+      <recent name="C:\react\projects\01-first-project\react-1\src\Dialogs" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/src/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1aaa7ef0-4f36-4c14-a4f5-a67ce523f054" name="Changes" comment="" />
+      <created>1638213104781</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638213104781</updated>
+      <workItem from="1638213106390" duration="8452000" />
+      <workItem from="1638293334463" duration="2867000" />
+      <workItem from="1638296239443" duration="1449000" />
+      <workItem from="1638298678196" duration="1719000" />
+      <workItem from="1638300835221" duration="978000" />
+      <workItem from="1638301851615" duration="7685000" />
+      <workItem from="1638310919933" duration="5496000" />
+      <workItem from="1638375047315" duration="2949000" />
+      <workItem from="1638383428529" duration="6038000" />
+      <workItem from="1638568148250" duration="769000" />
+      <workItem from="1638646713484" duration="7626000" />
+      <workItem from="1638716575211" duration="1033000" />
+      <workItem from="1638717627522" duration="22712000" />
+      <workItem from="1638815721175" duration="13823000" />
+      <workItem from="1638878179016" duration="760000" />
+      <workItem from="1638917144926" duration="9043000" />
+      <workItem from="1639071747472" duration="8961000" />
+      <workItem from="1639183097951" duration="14907000" />
+      <workItem from="1639238604312" duration="3353000" />
+      <workItem from="1639312002855" duration="1430000" />
+      <workItem from="1639433266286" duration="12555000" />
+      <workItem from="1639495506138" duration="12060000" />
+      <workItem from="1639586250282" duration="8138000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/App.js</url>
+          <line>35</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
