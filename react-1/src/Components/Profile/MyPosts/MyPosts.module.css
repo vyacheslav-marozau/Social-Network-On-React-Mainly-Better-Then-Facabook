@@ -1,0 +1,9 @@
+.posts {
+  color: rgb(95, 95, 95);
+}
+.postsBlock {
+  padding: 10px;
+}
+.remButton, .posts {
+  margin-top: 10px;
+}
