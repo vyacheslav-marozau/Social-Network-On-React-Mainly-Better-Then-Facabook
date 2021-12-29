@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {createRef} from 'react'
 import s from './../Dialogs.module.css'
 
+
+
 const Message = (props) => {
-    return <div className={s.message}>{props.message}</div>
+        let currentUser = 'Pastor J'
+        const style = {justifySelf: currentUser === props.sender ? "end" : "start"};
+        return <div className={s.message} style={style}> {props.message} </div>;
+
 }
 export default Message;
 
