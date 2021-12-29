@@ -4,6 +4,9 @@
   padding: 20px;
   border-radius: 18px;
   margin: 2px;
+  grid-template-rows: 30px 30px 30px 30px 64px 28px;
+  grid-template-columns: 250px;
+  display: grid;
 }
 
 .item {
@@ -12,3 +15,20 @@
 .active {
   color: gold;
 }
+
+.friendsList {
+  list-style-type: none;
+  display: grid;
+  grid-template-rows: 61px 72px;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0;
+  margin: 0;
+}
+/*.friendsList {
+  list-style-type: none;
+}*/
+li {
+  list-style-type: none; /* Убираем маркеры у списка */
+  /*list-style-image: url("orange-round.png");*/
+}
+
