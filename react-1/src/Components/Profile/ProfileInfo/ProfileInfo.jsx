@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
+import mainAvatar from './ava-scorpion-mortal-kombat-008.jpg'
 
     const ProfileInfo = () => {
         return <div >
@@ -8,7 +9,7 @@ import s from './ProfileInfo.module.css';
                 alt='zakat' width='100.1%'/></div>
 
             <div className={s.descriptionBlock}>
-                <img src={'ava-scorpion-mortal-kombat-008.jpg'} alt='ava' /* width="100" height="50"  *//>
+                <img src={mainAvatar} alt='Ava' width="100" height="50"/>
                 <h3>Pastor J</h3>
                 <p>Date of Birth: 31 February</p>
                 <p>City: London</p>
