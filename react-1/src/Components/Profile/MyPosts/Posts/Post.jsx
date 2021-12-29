@@ -7,9 +7,6 @@ import s from './Post.module.css'
                   <p>{props.message}</p>
                   <div><span>Like {props.likeCounter} </span></div>
                 </div>
-                
-            //  It's our new program! Hey!  
-    
     }
 
 export default Post; 
