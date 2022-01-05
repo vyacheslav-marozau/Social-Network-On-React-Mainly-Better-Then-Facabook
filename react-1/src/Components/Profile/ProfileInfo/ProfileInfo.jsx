@@ -1,13 +1,11 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
 import mainAvatar from './ava-scorpion-mortal-kombat-008.jpg'
+import mainBackground from './zakat_na_kube.jpg'
 
     const ProfileInfo = () => {
         return <div >
-            <div><img
-                 src='https://lh4.googleusercontent.com/-Bc29dswS9wc/VSckSkHyNRI/AAAAAAAAEQ0/rwnhBfrZAqA/w993-h665-no/DSC_0585.JPG'
-                alt='zakat' width='100.1%'/></div>
-
+            <div><img src={mainBackground} alt='zakat' width='100.1%'/></div>
             <div className={s.descriptionBlock}>
                 <img src={mainAvatar} alt='Ava' width="100" height="50"/>
                 <h3>Pastor J</h3>
