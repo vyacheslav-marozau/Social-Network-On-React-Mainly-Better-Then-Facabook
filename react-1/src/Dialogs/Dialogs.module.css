@@ -18,6 +18,11 @@
     display: grid;
     grid-template-columns: 100px;
     grid-template-rows: 50px 50px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    padding: 10px 0 0 10px;
 }
 
 
