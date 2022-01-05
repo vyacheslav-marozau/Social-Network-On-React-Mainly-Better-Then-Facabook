@@ -4,13 +4,11 @@ import Header from './Components/Header/Header';
 import NavBar from './Components/NavBar/NavBar';
 import Profile from './Components/Profile/Profile';
 import Dialogs from "./Dialogs/Dialogs";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {addMessage, updateNewMessageText, updateNewPostText} from "./redux/state";
+import {Route, Routes} from "react-router-dom";
 
 
 const App = (props) => {
   return (
-
     <div className="App">
       <div className='app-wrapper'>
       <Header />
@@ -19,18 +17,16 @@ const App = (props) => {
                   <Routes>
                      <Route exact path='/dialogs'
                                   element={<Dialogs
-                                      state={props.state.dialogsPage}
                                       newMessageText={props.state.dialogsPage.newMessageText}
-                                      addMessage={props.addMessage}
-                                      updateNewMessageText={props.updateNewMessageText}
+                                      //state={props.state.dialogsPage}
+                                      dispatch={props.dispatch}
+                                      store={props.store}
                                   />}/>
                       <Route path='/profile'
                                   element={<Profile
                                       profilePage={props.state.profilePage}
-                                      addPost={props.addPost}
-                                      updateNewPostText={props.updateNewPostText}
+                                      dispatch={props.dispatch}
                                   />}/>
-                      {/*postsAr = {posts}*/}
                       <Route path='/news'
                                   element={<Dialogs
                                       state={props.state.dialogsPage} />}/>
