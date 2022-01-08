@@ -1,0 +1,27 @@
+diff --git a/react-1/ssaeloh.txt b/react-1/ssaeloh.txt
+index b1bd4ae..60058ca 100644
+--- a/react-1/ssaeloh.txt
++++ b/react-1/ssaeloh.txt
+@@ -1,11 +1,11 @@
+-"start": "react-scripts start"
++"start": "react-ripts start"
+ "build": "react-scripts build"
+ 
+ 
+  {/* <header className="App-header">
+-        <img src={logo} className="App-logo" alt="logo" />
++        <img src={logo123} className="App-logo" alt="logo" />
+         <p>
+-          Pastor J - The Best Edit <code>src/App.js</code> and save to reload.
++          Pastor J  Da Best- The Best Edit <code>src/App.js</code> and save to reload.
+         </p>
+         <a
+           className="App-link"
+@@ -13,6 +13,6 @@
+           target="_blank"
+           rel="noopener noreferrer"
+         >
+-          Learn React
++          Learn Angular
+         </a>
+       </header> */}
