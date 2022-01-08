@@ -4,7 +4,8 @@ import {NavLink} from "react-router-dom";
 import tag from './orange-round.png'
 
     const NavBar = (props) => {
-        /*console.log(props);*/
+        let sideBar = props.store.getState().sidebar;
+
         return <nav className={s.nav}>
         <div className={`${s.item} ${s.active}`}>
             <NavLink to="/profile" className = { navData => navData.isActive ? s.active : s.item }
@@ -29,9 +30,9 @@ import tag from './orange-round.png'
                 <img src={tag} alt="Tag" />
                 <img src={tag} alt="Tag" />
                 <img src={tag} alt="Tag" />
-                <li>{props.sideBar.friends[0].name}</li>
-                <li>{props.sideBar.friends[1].name}</li>
-                <li>{props.sideBar.friends[2].name}</li>
+                <li>{sideBar.friends[0].name}</li>
+                <li>{sideBar.friends[1].name}</li>
+                <li>{sideBar.friends[2].name}</li>
             </ul>
 
       </nav>

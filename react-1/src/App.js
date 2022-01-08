@@ -12,7 +12,7 @@ const App = (props) => {
     <div className="App">
       <div className='app-wrapper'>
       <Header />
-      <NavBar sideBar = {props.state.sideBar}/>
+      <NavBar store = {props.store}/>
           <div className='app-wrapper-content'>
                   <Routes>
                      <Route exact path='/dialogs'
@@ -24,21 +24,27 @@ const App = (props) => {
                                   />}/>
                       <Route path='/profile'
                                   element={<Profile
-                                      profilePage={props.state.profilePage}
+                                      //profilePage={props.state.profilePage}
                                       dispatch={props.dispatch}
+                                      store={props.store}
                                   />}/>
-                      <Route path='/news'
-                                  element={<Dialogs
-                                      state={props.state.dialogsPage} />}/>
+                      {/*<Route path='/news'
+                                  element={<News
+                                      newsPage={props.state.newsPage}
+                                      dispatch={props.dispatch}
+                                       />}/>
                       <Route path='/music'
-                                  element={<Dialogs
-                                      state={props.state.dialogsPage} />}/>
+                                  element={<Music
+                                      musicPage={props.state.musicPage}
+                                      dispatch={props.dispatch}
+                                       />}/>
                       <Route path='/settings'
-                                  element={<Dialogs
-                                      state={props.state.dialogsPage} />}/>
+                                  element={<Settings
+                                      profilePage={props.state.profilePage}
+                                      dispatch={props.dispatch} />}/>
                       <Route path='/friends'
                              element={<Dialogs
-                                 state={props.state.dialogsPage} />}/>
+                                 state={props.state.dialogsPage} />}/>*/}
                   </Routes>
           </div>
       </div>
