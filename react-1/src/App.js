@@ -5,6 +5,7 @@ import NavBar from './Components/NavBar/NavBar';
 import Profile from './Components/Profile/Profile';
 import Dialogs from "./Dialogs/Dialogs";
 import {Route, Routes} from "react-router-dom";
+import DialogsContainer from "./Dialogs/DialogsContainer";
 
 
 const App = (props) => {
@@ -16,7 +17,7 @@ const App = (props) => {
           <div className='app-wrapper-content'>
                   <Routes>
                      <Route exact path='/dialogs'
-                                  element={<Dialogs
+                                  element={<DialogsContainer
                                       newMessageText={props.state.dialogsPage.newMessageText}
                                       //state={props.state.dialogsPage}
                                       dispatch={props.dispatch}
