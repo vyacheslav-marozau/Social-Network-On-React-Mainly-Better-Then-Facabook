@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import tag from './orange-round.png'
 
     const NavBar = (props) => {
-        let sideBar = props.store.getState().sidebar;
+        let sideBar = props.sidebar;
 
         return <nav className={s.nav}>
         <div className={`${s.item} ${s.active}`}>
