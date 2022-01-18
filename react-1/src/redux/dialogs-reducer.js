@@ -18,21 +18,28 @@ let initialState = {
     currentId: 7,
     currentUser: 'Pastor J'
 };
-const dialogsReducer = (state = initialState, action) => {
+const dialogsReducer = (state= initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE:
+        case ADD_MESSAGE: {
+            let stateCopy = {...state};
             let body = state.newMessageText;
-            state.messages.push({id: state.currentId,
+            stateCopy.messages = [...state.messages]
+            stateCopy.messages.push({
+                id: stateCopy.currentId,
                 message: body,
-                sender: 'Pastor J'});
-            state.currentId++;
-            state.newMessageText = '';
+                sender: 'Pastor J'
+            });
+            stateCopy.currentId++;
+            stateCopy.newMessageText = '';
             //this._callSubscriber(this._state);
-            return state;
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.body;
+            return stateCopy;
+        }
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.newMessageText = action.body;
             //this._callSubscriber(this._state);
-            return state;
+            return stateCopy;
+        }
         default:
             return state;
     }

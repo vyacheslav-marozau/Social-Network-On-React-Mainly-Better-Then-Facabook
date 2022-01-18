@@ -14,20 +14,25 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
         switch (action.type) {
-            case ADD_POST:
+            case ADD_POST: {
                 let newPost = {
                     id: 5,
                     message: state.newPostText,
                     likeCounter: 14,
                 }
-                state.posts.push(newPost);
-                state.newPostText = '';
+                let stateCopy = {...state};
+                stateCopy.posts = [...state.posts];
+                stateCopy.posts.push(newPost);
+                stateCopy.newPostText = '';
                 //this._callSubscriber(this._state);
-                return state;
-            case UPDATE_NEW_POST_TEXT:
-                state.newPostText = action.newText;
+                return stateCopy;
+        }
+            case UPDATE_NEW_POST_TEXT: {
+                let stateCopy = {...state};
+                stateCopy.newPostText = action.newText;
                 //this._callSubscriber(this._state);
-                return state;
+                return stateCopy;
+            }
             default:
                 return state;
         }

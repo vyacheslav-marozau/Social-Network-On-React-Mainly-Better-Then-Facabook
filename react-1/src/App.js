@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
-import NavBar from './Components/NavBar/NavBar';
+import NavBarContainer from './Components/NavBar/NavBarContainer';
 import Profile from './Components/Profile/Profile';
 //import Dialogs from "./Dialogs/Dialogs";
 import {Route, Routes} from "react-router-dom";
@@ -12,8 +12,8 @@ const App = (props) => {
   return (
     <div className="App">
       <div className='app-wrapper'>
-      <Header />
-      <NavBar store = {props.store}/>
+         <Header />
+          { <NavBarContainer/>}
           <div className='app-wrapper-content'>
                   <Routes>
                      <Route exact path='/dialogs'
