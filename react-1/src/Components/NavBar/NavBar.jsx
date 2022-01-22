@@ -5,7 +5,6 @@ import tag from './orange-round.png'
 
     const NavBar = (props) => {
         let sideBar = props.sidebar;
-
         return <nav className={s.nav}>
         <div className={`${s.item} ${s.active}`}>
             <NavLink to="/profile" className = { navData => navData.isActive ? s.active : s.item }
@@ -23,8 +22,11 @@ import tag from './orange-round.png'
         <div className={s.item}>
             <NavLink to="/settings" className = { navData => navData.isActive ? s.active : s.item }>Settings</NavLink>
         </div>
+            <div className={s.item}>
+                <NavLink to="/users" className = { navData => navData.isActive ? s.active : s.item}>Find Users</NavLink>
+            </div>
         <div className={s.item}>
-            <NavLink to="/friends" className = { navData => navData.isActive ? s.active : s.item }>Friends</NavLink>
+            <NavLink to="/friends" className = { navData => navData.isActive ? s.active : s.item}>Friends</NavLink>
         </div>
             <ul className={s.friendsList}>
                 <img src={tag} alt="Tag" />
