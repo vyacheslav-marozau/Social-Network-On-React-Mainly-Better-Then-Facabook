@@ -6,6 +6,7 @@ import Profile from './Components/Profile/Profile';
 //import Dialogs from "./Dialogs/Dialogs";
 import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./Dialogs/DialogsContainer";
+import UsersContainer from "./Components/Users/UsersContainer";
 
 
 const App = (props) => {
@@ -29,6 +30,9 @@ const App = (props) => {
                                       //dispatch={props.dispatch}
                                       /*store={props.store}*/
                                   />}/>
+                      <Route path='/users'
+                             element={<UsersContainer
+                             />}/>
                       {/*<Route path='/news'
                                   element={<News
                                       newsPage={props.state.newsPage}
