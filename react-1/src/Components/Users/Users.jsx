@@ -4,67 +4,60 @@ import avatar from "./Komisarenko_Avatar.png";
 import * as axios from "axios";
 
 let Users = (props) => {
-debugger;
 
-   /* {
-        id: 2,
-            photoUrl: avatar,
-        followed: true,
-        fullName: 'Lautaro',
-        status: 'I\'m a boss',
-        location: {city: 'Milan', country: 'Italy'}
-    }*/
+let getUsers = () => {
+    if (props.users.length === 0) {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            debugger;
+            props.setUsers(response.data.items)
+        });
 
-if (props.users.length === 0) {
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then( response => {
-    debugger;
-    props.setUsers(response.data.items)
-    });
-
-     /*   [
-        {
-            id: 1,
-            photoUrl: avatar,
-            followed: false,
-            fullName: 'Dmitriy',
-            status: 'I\'m a boss?',
-            location: {city: 'Minsk', country: 'Belarus'}
-        },
-            {
-                id: 2,
-                photoUrl: avatar,
-                followed: true,
-                fullName: 'Lautaro',
-                status: 'I\'m a boss',
-                location: {city: 'Milan', country: 'Italy'}
-            },
-            {
-                id: 3,
-                photoUrl: avatar,
-                followed: true,
-                fullName: 'Marshall Bruce Matters II',
-                status: 'I\'m a boss',
-                location: {city: 'Detroit', country: 'USA'}
-            },
-            {
-                id: 4,
-                photoUrl: avatar,
-                followed: true,
-                fullName: 'Ekaterina',
-                status: 'I\'m a boss',
-                location: {city: 'Soligorsk', country: 'Belarus'}
-            },
-            {
-                id: 5,
-                photoUrl: avatar,
-                followed: true,
-                fullName: 'Memphis',
-                status: 'I\'m a boss',
-                location: {city: 'Barcelona', country: 'Spain'}
-            }
-        ]*/
+        /*   [
+           {
+               id: 1,
+               photoUrl: avatar,
+               followed: false,
+               fullName: 'Dmitriy',
+               status: 'I\'m a boss?',
+               location: {city: 'Minsk', country: 'Belarus'}
+           },
+               {
+                   id: 2,
+                   photoUrl: avatar,
+                   followed: true,
+                   fullName: 'Lautaro',
+                   status: 'I\'m a boss',
+                   location: {city: 'Milan', country: 'Italy'}
+               },
+               {
+                   id: 3,
+                   photoUrl: avatar,
+                   followed: true,
+                   fullName: 'Marshall Bruce Matters II',
+                   status: 'I\'m a boss',
+                   location: {city: 'Detroit', country: 'USA'}
+               },
+               {
+                   id: 4,
+                   photoUrl: avatar,
+                   followed: true,
+                   fullName: 'Ekaterina',
+                   status: 'I\'m a boss',
+                   location: {city: 'Soligorsk', country: 'Belarus'}
+               },
+               {
+                   id: 5,
+                   photoUrl: avatar,
+                   followed: true,
+                   fullName: 'Memphis',
+                   status: 'I\'m a boss',
+                   location: {city: 'Barcelona', country: 'Spain'}
+               }
+           ]*/
     }
+}
     return <div>
+        <button onClick={getUsers}>Get Users</button>
         {
         props.users.map(u => { return <div key={u.id}>
             <span>
