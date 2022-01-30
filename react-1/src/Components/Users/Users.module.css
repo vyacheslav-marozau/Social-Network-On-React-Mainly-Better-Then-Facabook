@@ -2,7 +2,15 @@
   width: 88px;
   height: 58.44px;
 }
-
+.selectedPage {
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 0 8px 0 0;
+}
+.pointer {
+  cursor: pointer;
+  margin: 0 8px 0 0;
+}
 /*.item {*/
 /*  color: white;*/
 /*}*/
