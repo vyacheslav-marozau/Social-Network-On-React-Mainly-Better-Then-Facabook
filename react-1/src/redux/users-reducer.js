@@ -10,7 +10,7 @@ let initialState = {
         ],
     pageSize: 5,
     totalUsersCount: 21,
-    currentPage: 2
+    currentPage: 1
     };
 
 const usersReducer = (state = initialState, action) => {
