@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
+
     follow,
     setCurrentPage,
     setUsers,
@@ -43,6 +44,7 @@ class UsersContainer extends React.Component {
         return <>
             { this.props.isFetching ? <Preloader />: null }
             <Users totalUsersCount={this.props.totalUsersCount}
+
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}

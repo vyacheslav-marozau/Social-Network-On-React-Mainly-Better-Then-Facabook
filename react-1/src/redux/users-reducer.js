@@ -39,6 +39,7 @@ const usersReducer = (state = initialState, action) => {
                     return u;
                 })
             }
+
             return stateCopy;
         }
         case SET_USERS: {
@@ -57,6 +58,7 @@ const usersReducer = (state = initialState, action) => {
             return state;
     }
 }
+
 
 export const follow = (userId) => ({type: FOLLOW, userId})
 export const unFollow = (userId) => ({type: UNFOLLOW, userId})
