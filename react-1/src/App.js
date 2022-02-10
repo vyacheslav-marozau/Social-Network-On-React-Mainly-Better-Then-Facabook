@@ -7,6 +7,7 @@ import Profile from './Components/Profile/Profile';
 import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
+import ProfileContainer from "./Components/Profile/ProfileContainer";
 
 
 const App = (props) => {
@@ -24,8 +25,8 @@ const App = (props) => {
                                       //dispatch={props.dispatch}
                                       /*store={props.store}*/
                                   />}/>
-                      <Route path='/profile'
-                                  element={<Profile
+                      <Route path='/profile/*'
+                                  element={<ProfileContainer
                                       //profilePage={props.state.profilePage}
                                       //dispatch={props.dispatch}
                                       /*store={props.store}*/

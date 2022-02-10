@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
-
     follow,
     setCurrentPage,
     setUsers,
@@ -40,17 +39,15 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-
         return <>
             { this.props.isFetching ? <Preloader />: null }
             <Users totalUsersCount={this.props.totalUsersCount}
-
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}
                    users={this.props.users}
                    follow={this.props.follow}
-                   unFollow={this.props.unFollow}
+                   unfollow={this.props.unfollow}
             />
         </>
     }
@@ -91,4 +88,4 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     follow, unFollow, setUsers,
     setCurrentPage, setTotalUsersCount, toggleIsFetching
-    })(UsersContainer);
+})(UsersContainer);
