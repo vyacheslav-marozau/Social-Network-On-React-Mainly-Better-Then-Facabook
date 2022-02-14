@@ -4,11 +4,10 @@ import Header from './Components/Header/Header';
 import NavBarContainer from './Components/NavBar/NavBarContainer';
 import Profile from './Components/Profile/Profile';
 //import Dialogs from "./Dialogs/Dialogs";
-import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
-
+import {Route, Routes, Switch} from "react-router-dom";
 
 const App = (props) => {
   return (
@@ -17,23 +16,33 @@ const App = (props) => {
          <Header />
           { <NavBarContainer/>}
           <div className='app-wrapper-content'>
-                  <Routes>
+              <Switch>
                      <Route exact path='/dialogs'
-                                  element={<DialogsContainer
-                                      //newMessageText={props.state.dialogsPage.newMessageText}
-                                      //state={props.state.dialogsPage}
-                                      //dispatch={props.dispatch}
-                                      /*store={props.store}*/
-                                  />}/>
-                      <Route path='/profile/*'
-                                  element={<ProfileContainer
-                                      //profilePage={props.state.profilePage}
-                                      //dispatch={props.dispatch}
-                                      /*store={props.store}*/
-                                  />}/>
+                            render = {() => <DialogsContainer
+                                        //newMessageText={props.state.dialogsPage.newMessageText}
+                                        //state={props.state.dialogsPage}
+                                        //dispatch={props.dispatch}
+                                        /*store={props.store}*/ />
+                            }
+
+                                  /*component={<DialogsContainer
+                                      //store={props.store}
+                                  />}*//>
+                      <Route path='/profile/:userId?'
+                             render = {() => <ProfileContainer
+                                              //profilePage={props.state.profilePage}
+                                              //dispatch={props.dispatch}
+                                              /*store={props.store}*/
+                                              />}
+
+                             /*component={<ProfileContainer
+                                      //store={props.store}
+                                  />}*//>
                       <Route path='/users'
-                             element={<UsersContainer
-                             />}/>
+                             render = {() => <UsersContainer/>}
+
+                             /*component={<UsersContainer
+                             />}*//>
                       {/*<Route path='/news'
                                   element={<News
                                       newsPage={props.state.newsPage}
@@ -51,7 +60,7 @@ const App = (props) => {
                       <Route path='/friends'
                              element={<Dialogs
                                  state={props.state.dialogsPage} />}/>*/}
-                  </Routes>
+              </Switch>
           </div>
       </div>
     </div>
