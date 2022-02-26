@@ -7,10 +7,12 @@
   grid-template-rows: 30px 30px 30px 30px 64px 28px;
   grid-template-columns: 250px;
   display: grid;
+  height: 381px;
 }
 
 .item {
   color: white;
+  text-decoration: none;
 }
 .active {
   color: gold;
@@ -23,6 +25,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0;
   margin: 0;
+}
+.friends {
+  margin: 35px 0 0 0;
 }
 /*.friendsList {
   list-style-type: none;

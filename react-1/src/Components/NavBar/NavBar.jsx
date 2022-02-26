@@ -4,34 +4,37 @@ import {NavLink} from "react-router-dom";
 import tag from './orange-round.png'
 
     const NavBar = (props) => {
-        /*console.log(props);*/
+        let sideBar = props.sidebar;
         return <nav className={s.nav}>
         <div className={`${s.item} ${s.active}`}>
-            <NavLink to="/profile" className = { navData => navData.isActive ? s.active : s.item }
+            <NavLink to="/profile" activeClassName={s.active} className = {s.item}/*{ navData => navData.isActive ? s.active : */
             >Profile</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/dialogs" className = { navData => navData.isActive ? s.active : s.item }>Messages</NavLink>
+            <NavLink to="/dialogs" activeClassName={s.active} className = {s.item}/*{ navData => navData.isActive ? s.active : */>Messages</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/news" className = { navData => navData.isActive ? s.active : s.item }>News</NavLink>
+            <NavLink to="/news" activeClassName={s.active} className = {s.item}/*{ navData => navData.isActive ? s.active : */>News</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/music" className = { navData => navData.isActive ? s.active : s.item }>Music</NavLink>
+            <NavLink to="/music" activeClassName={s.active} className = {s.item}/*{ navData => navData.isActive ? s.active : */>Music</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to="/settings" className = { navData => navData.isActive ? s.active : s.item }>Settings</NavLink>
+            <NavLink to="/settings" activeClassName={s.active} className = {s.item}/*{ navData => navData.isActive ? s.active : */>Settings</NavLink>
         </div>
+            <div className={s.item}>
+                <NavLink to="/users" activeClassName={s.active} className = {s.item}/*{ navData => navData.isActive ? s.active : */>Find Users</NavLink>
+            </div>
         <div className={s.item}>
-            <NavLink to="/friends" className = { navData => navData.isActive ? s.active : s.item }>Friends</NavLink>
+            <NavLink to="/friends" activeClassName={s.active} className = {s.item}/*{ navData => navData.isActive ? s.active : */>Friends</NavLink>
         </div>
             <ul className={s.friendsList}>
                 <img src={tag} alt="Tag" />
                 <img src={tag} alt="Tag" />
                 <img src={tag} alt="Tag" />
-                <li>{props.sideBar.friends[0].name}</li>
-                <li>{props.sideBar.friends[1].name}</li>
-                <li>{props.sideBar.friends[2].name}</li>
+                <li>{sideBar.friends[0].name}</li>
+                <li>{sideBar.friends[1].name}</li>
+                <li>{sideBar.friends[2].name}</li>
             </ul>
 
       </nav>

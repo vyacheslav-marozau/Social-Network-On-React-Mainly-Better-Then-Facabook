@@ -1,0 +1,28 @@
+.avatar {
+  width: 88px;
+  height: 58.44px;
+}
+.selectedPage {
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 0 8px 0 0;
+}
+.pointer {
+  cursor: pointer;
+  margin: 0 8px 0 0;
+}
+/*.item {*/
+/*  color: white;*/
+/*}*/
+/*.active {*/
+/*  color: gold;*/
+/*}*/
+
+/*.friendsList {*/
+/*  list-style-type: none;*/
+/*  display: grid;*/
+/*  grid-template-rows: 61px 72px;*/
+/*  grid-template-columns: 1fr 1fr 1fr;*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*}*/

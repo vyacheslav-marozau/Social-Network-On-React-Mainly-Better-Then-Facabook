@@ -1,24 +1,23 @@
 import React, {createRef} from 'react';
 import s from './MyPosts.module.css'
 import Post from './Posts/Post';
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+//import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 
 
 
     const MyPosts = (props) => {
-        let postsElements = props.posts.map(p => <Post message={p.message} likeCounter={p.likeCounter} />);
+        let postsElements = props.posts.map(p => <Post message={p.message} key={p.id} likeCounter={p.likeCounter} />);
 
         let newPostElement = createRef();
 
-        let addPost = () => {
-            props.dispatch(addPostActionCreator());
+        let onPostAdd = () => {
+            props.addPost();
             let text1 = '';
-            props.dispatch(updateNewPostTextActionCreator(text1));
+            props.updateNewPostText(text1);
         }
         let onPostChange = () => {
             let text = newPostElement.current.value;
-            let action = updateNewPostTextActionCreator(text);
-            props.dispatch(action);
+            props.updateNewPostText(text);
         }
         return <div className={s.postsBlock}>
             <h3>My Posts</h3>
@@ -28,7 +27,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
                               value={props.newPostText}/>
                 </div>
                 <div className={s.addButton}>
-                    <button onClick={addPost} >Add post</button>
+                    <button onClick={onPostAdd} >Add post</button>
                 </div>
                 <div className={s.remButton}>
                     <button>Remove</button>
@@ -41,4 +40,4 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
     
     }
 
-export default MyPosts; 
+export default MyPosts;
