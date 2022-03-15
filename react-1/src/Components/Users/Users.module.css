@@ -3,7 +3,7 @@
   height: 58.44px;
 }
 .selectedPage {
-  font-weight: bolder;
+  font-weight: bold;
   cursor: pointer;
   margin: 0 8px 0 0;
 }
