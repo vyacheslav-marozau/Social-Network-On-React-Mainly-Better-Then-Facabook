@@ -27,10 +27,21 @@ export const usersAPI = {
                 return response.data
             });
     },
-    authorization() {
+    /*auth() {
         return instance.get(`auth/me`)
-            .then (response => {
+            .then(response => {
                 return response.data
-        });
+            });
+    },*/
+     getProfile(userId) {
+            return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId);
+        }
+}
+export const authAPI = {
+    me() {
+        return instance.get(`auth/me`)
+            .then(response => {
+                return response.data
+            });
     }
 }
