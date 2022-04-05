@@ -6,6 +6,7 @@ const Profile = (props) => {
     //let profilePage = props.store.getState().profilePage;
     return <div>
         <ProfileInfo profile={props.profile}/>
+
         <MyPostsContainer /*posts={profilePage.posts}
                  newPostText={profilePage.newPostText}
                  dispatch={props.dispatch}*/

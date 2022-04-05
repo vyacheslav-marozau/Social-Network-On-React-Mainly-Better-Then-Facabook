@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import NavBarContainer from './Components/NavBar/NavBarContainer';
-import Profile from './Components/Profile/Profile';
 //import Dialogs from "./Dialogs/Dialogs";
 import DialogsContainer from "./Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
-import {Route, Routes, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import LoginPage from "./../src/Components/login/login";
 
 const App = (props) => {
   return (
@@ -40,9 +40,10 @@ const App = (props) => {
                                   />}*//>
                       <Route path='/users'
                              render = {() => <UsersContainer/>}
-
-                             /*component={<UsersContainer
-                             />}*//>
+                      />
+                  <Route path='/login'
+                         render = {() => <LoginPage/>}
+                  />
                       {/*<Route path='/news'
                                   element={<News
                                       newsPage={props.state.newsPage}

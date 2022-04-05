@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
-import mainAvatar from './ava-scorpion-mortal-kombat-008.jpg'
+//import mainAvatar from './ava-scorpion-mortal-kombat-008.jpg'
 import mainBackground from './zakat_na_kube.jpg'
 import Preloader from '../../сommon/Preloder/Preloader';
 import Jobtrue from './isLookingForAJobTrue.jpg';

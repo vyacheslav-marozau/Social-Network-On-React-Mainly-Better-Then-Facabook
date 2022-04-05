@@ -33,8 +33,11 @@ export const usersAPI = {
                 return response.data
             });
     },*/
-     getProfile(userId) {
-            return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId);
+     getProfile(id) {
+            return instance.get(`profile/` + id)
+                /*.then(response => {
+                    return response.data
+                })*/;
         }
 }
 export const authAPI = {
