@@ -6,10 +6,8 @@ import {
     unFollow,
     toggleIsFollowingProgress, getUsers
 } from '../../redux/users-reducer';
-import * as axios from 'axios';
 import Users from './Users';
 import Preloader from "../../Components/сommon/Preloder/Preloader";
-import {usersAPI} from "../../api/api";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);

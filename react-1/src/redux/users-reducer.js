@@ -1,5 +1,3 @@
-import avatar from './../Components/Users/Komisarenko_Avatar.png';
-import * as axios from "axios";
 import {usersAPI} from "../api/api";
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -61,7 +59,7 @@ const usersReducer = (state = initialState, action) => {
                 return {...state,
                     followingInProgress: action.isFetching
                         ? [...state.followingInProgress, action.userId]
-                        : state.followingInProgress.filter(id => id != action.userId)
+                        : state.followingInProgress.filter(id => id !== action.userId)
                         }
             }
             default:
@@ -91,7 +89,7 @@ export const follow = (userId) => {
         dispatch(toggleIsFollowingProgress(true, userId));
         usersAPI.follow(userId)
             .then(data => {
-                if (data.resultCode == 0) {
+                if (data.resultCode === 0) {
                     dispatch(followSuccess(userId));
                 }
                 dispatch(toggleIsFollowingProgress(false, userId));
@@ -103,7 +101,7 @@ export const unFollow = (userId) => {
         dispatch(toggleIsFollowingProgress(true, userId));
         usersAPI.unFollow(userId)
             .then(data => {
-                if (data.resultCode == 0) {
+                if (data.resultCode === 0) {
                     dispatch(unFollowSuccess(userId));
                 }
                 dispatch(toggleIsFollowingProgress(false, userId));

@@ -2,6 +2,7 @@ import React, {createRef} from 'react'
 import s from './Dialogs.module.css'
 import DialogsItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {Redirect} from "react-router-dom";
 //import {addMessageCreator, updateNewMessageTextCreator} from "../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
@@ -26,6 +27,7 @@ const Dialogs = (props) => {
 
     }
 
+    if (!props.isAuth) return <Redirect to={"/login"} />;
     return <div className={s.dialogs}>
 
         <div className={s.dialogsItems }>
