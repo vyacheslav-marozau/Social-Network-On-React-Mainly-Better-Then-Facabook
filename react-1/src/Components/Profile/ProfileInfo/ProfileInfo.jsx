@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ProfileInfo.module.css';
 //import mainAvatar from './ava-scorpion-mortal-kombat-008.jpg'
 import mainBackground from './zakat_na_kube.jpg'
-import Preloader from '../../сommon/Preloder/Preloader';
+import Preloader from './../../common/Preloder/Preloader';
 import Jobtrue from './isLookingForAJobTrue.jpg';
 import Jobfalse from './isLookingForAJobFalse.jpg';
     const ProfileInfo = (props) => {
