@@ -14,7 +14,7 @@ import ProfileStatus from './ProfileStatus';
             {/*<div><img src={mainBackground} alt='zakat' width='100.1%'/></div>*/}
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large} alt='Ava' />  {/*width="100" height="50"*/}
-                <ProfileStatus status="Hello My friends"/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 <h3>{props.profile.fullName}</h3> {/*Pastor J*/}
                 <p>{props.profile.aboutMe}</p>
                 <p>Date of Birth: 31 February</p>
