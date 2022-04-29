@@ -1,11 +1,13 @@
-import {authAPI} from "../api/api";
+import {authAPI, profileAPI} from "../api/api";
+import * as axios from "axios";
 const SET_USER_DATA = 'SET_USER_DATA';
 
 let initialState = {
     userId: null,
     email: null,
     login: null,
-    isAuth: false
+    isAuth: false,
+    password: null
     };
 
 const authReducer = (state = initialState, action) => {
@@ -21,8 +23,8 @@ const authReducer = (state = initialState, action) => {
                 return state;
         }
 }
-export const setAuthUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login} })
-export const authorization = () => {
+export const setAuthUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login} });
+export const isMe = () => {
     return (dispatch) => {
         authAPI.me().then(data => {
             if (data.resultCode === 0) {
@@ -32,4 +34,27 @@ export const authorization = () => {
         });
     }
 }
+
+    /*return (dispatch) => {
+        authAPI.login().then(data => {
+            if (data.resultCode === 0) {
+                profileAPI.getProfile(data.id);
+                /!*let {id, email, login} = data.data;
+                dispatch(setAuthUserData(id, email, login));*!/
+            }
+        });
+    }
+}*/
+
+/*export const authorization = () => {
+    return (dispatch) => {
+        authAPI.login().then(data => {
+            if (data.resultCode === 0) {
+                profileAPI.getProfile(data.id);
+                /!*let {id, email, login} = data.data;
+                dispatch(setAuthUserData(id, email, login));*!/
+            }
+        });
+    }
+}*/
 export default authReducer;

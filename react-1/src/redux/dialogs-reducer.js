@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 let initialState = {
     dialogs: [{id: 1, name: 'Pastor J', avatar: 'https://slm-assets.secondlife.com/assets/3649954/lightbox/orange%20dragon.jpg?1306810228'},
         {id: 2, name: 'Joakin', avatar: 'https://www.thesun.co.uk/wp-content/uploads/2021/08/NINTCHDBPICT000675339240-e1629991954692.jpg'},
@@ -13,32 +12,23 @@ let initialState = {
         {id: 3, message: 'Now I am doing homework of 34 lessom!', sender: 'Pastor J'},
         {id: 4, message: 'Oh, Cool you are doing well', sender: 'Ekaterina'},
         {id: 5, message: 'Thank you for your support. But I\'m still at the very beginning of my journey.', sender: 'Pastor J'},
-        {id: 6, message: 'Okay, I\'ll meet you at the food court on Saturday', sender: 'Ekaterina'}],
-    newMessageText: 'See you! ;-)',
+        {id: 6, message: 'Okay, I\'ll meet you at the food court on Saturday', sender: 'Ekaterina'}],/*
+    newMessageText: 'See you! ;-)',*/
     currentId: 7,
     currentUser: 'Pastor J'
 };
 const dialogsReducer = (state= initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE: {
-            let body = state.newMessageText;
+            let body = action.newMessageBody;
             return {...state,
-                newMessageText: '',
                 messages: [...state.messages, {id: state.currentId, message: body, sender: 'Pastor J'}],
                 currentId: state.messages.length+2
             };
-            //this._callSubscriber(this._state);
-        }
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            return {...state,
-                    newMessageText: action.body
-            };
-            //this._callSubscriber(this._state);
         }
         default:
             return state;
     }
 }
-export const addMessageCreator = () => ({type: ADD_MESSAGE})
-export const updateNewMessageTextCreator = (body) => ({type: UPDATE_NEW_MESSAGE_TEXT, body: body})
+export const addMessageCreator = (newMessageBody) => ({type: ADD_MESSAGE, newMessageBody})
 export default dialogsReducer;

@@ -7,7 +7,7 @@ import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import {Route, Switch} from "react-router-dom";
 import HeaderContainer from "./Components/Header/HeaderContainer";
-import LoginPage from "./../src/Components/login/login";
+import LoginPage from "./../src/Components/login/loginContainer";
 
 const App = (props) => {
   return (
@@ -41,8 +41,10 @@ const App = (props) => {
                       <Route path='/users'
                              render = {() => <UsersContainer/>}
                       />
-                  <Route path='/login'
-                         render = {() => <LoginPage/>}
+                  <Route path='/Login'
+                         component={LoginPage}/>
+                  {/*<Route path='/login'
+                         render = {() => <LoginPage />*/}}
                   />
                       {/*<Route path='/news'
                                   element={<News
