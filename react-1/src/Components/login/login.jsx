@@ -5,6 +5,11 @@ import {NavLink, Redirect} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import Profile from "../Profile/Profile";
 import ProfileContainer from "../Profile/ProfileContainer";
+import {Input} from "../common/FormsControls/FormsControls";
+import state from "../../redux/state";
+import {required} from "../../utils/validators/validators";
+import {connect} from "react-redux";
+import {authorization} from "../../redux/auth-reducer";
 //import {authorization} from "../../redux/auth-reducer";
 
 const renderField = ({type, label, input, meta: {touched, error}}) => (
@@ -20,10 +25,10 @@ const renderField = ({type, label, input, meta: {touched, error}}) => (
 const LoginForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
         <div>
-            <Field label='email' placeholder={"email"} name={"email"} component={renderField}/>
+            <Field label='email' placeholder={"email"} name={"email"} component={Input} validate={[required]}/>
         </div>
         <div>
-            <Field label='Password' placeholder={"Password"} name={"password"} component={renderField}/>
+            <Field label='Password' placeholder={"Password"} name={"password"} component={Input} validate={[required]} type={"password"}/>
         </div>
         <div>
             <Field label='Remember Me' component={renderField} name={"rememberMe"} type="checkbox"/>
@@ -36,22 +41,6 @@ const LoginForm = (props) => {
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 const Login = (props) => {
 
-    async function authorizationz(data) {
-        try {
-            let response = await fetch('https://social-network.samuraijs.com/api/1.0/auth/login',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-            let responseJson = response.json();
-            return responseJson;
-        } catch (error) {
-            console.error(error);
-        }
-    }
     const onSubmit = ({email = '', password = '', rememberMe = false}) => {
         let error = {};
         let isError = false;
@@ -71,23 +60,19 @@ const Login = (props) => {
             throw new SubmissionError(error);
         }
         else {
-            // submit form to server
-            debugger;
-            authorizationz({email, password, rememberMe})
-                //.then(data => console.log(data))
-                // .then(data => profileAPI.getProfile(data.data.userId))
-
-                .then(data => {render: {<ProfileContainer profile = {data.data.userId}></ProfileContainer>}})
-
-            //console.log('Valid Submition');
+            props.authorization(email, password, rememberMe);
+           // debugger;
         }
-        //console.log(formData);
-        //authorization(formData.login, formData.password, formData.rememberMe);
+    }
+    if (props.isAuth) {
+        return <Redirect to={"/profile/" /*+ props.userId*/} />
     }
     return <div>
         <h1>LOGIN</h1>
         <LoginReduxForm onSubmit={onSubmit} />
     </div>
 }
-
-export default Login;
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth
+})
+export default connect (mapStateToProps, {authorization}) (Login);
