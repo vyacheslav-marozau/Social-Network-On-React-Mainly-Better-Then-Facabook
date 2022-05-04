@@ -68,3 +68,9 @@
     align-items: center;
     justify-items: center;
 }
+.sendMessage {
+    margin-top: 25px;
+}
+.addMessagePlace {
+    width: 200px;
+}
