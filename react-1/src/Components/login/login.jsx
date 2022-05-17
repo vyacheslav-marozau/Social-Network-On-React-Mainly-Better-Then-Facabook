@@ -10,7 +10,7 @@ import state from "../../redux/state";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {authorization} from "../../redux/auth-reducer";
-//import {authorization} from "../../redux/auth-reducer";
+import style from "./../common/FormsControls/FormsControl.module.css"
 
 const renderField = ({type, label, input, meta: {touched, error}}) => (
     <div className="input-row">
@@ -33,6 +33,9 @@ const LoginForm = (props) => {
         <div>
             <Field label='Remember Me' component={renderField} name={"rememberMe"} type="checkbox"/>
         </div>
+        {props.error && <div className={style.formSummaryError}>
+            {props.error}
+        </div>}
         <div>
             <button>Login</button>
         </div>
@@ -67,12 +70,23 @@ const Login = (props) => {
     if (props.isAuth) {
         return <Redirect to={"/profile/" /*+ props.userId*/} />
     }
+    if (props.url) {
+        return <div>
+            <h1>LOGIN</h1>
+            <LoginReduxForm onSubmit={onSubmit} />
+            <img src={props.url} alt="captcha"/>
+            <div>
+                <Field label='Captcha' placeholder={"Enter The Letters From A Picture Below"} name={"captcha"} component={Input} validate={[required]} type={"text"}/>
+            </div>
+        </div>
+    }
     return <div>
         <h1>LOGIN</h1>
         <LoginReduxForm onSubmit={onSubmit} />
     </div>
 }
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    url: state.auth.url
 })
 export default connect (mapStateToProps, {authorization}) (Login);
