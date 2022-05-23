@@ -35,15 +35,13 @@ const authReducer = (state = initialState, action) => {
 }
 export const setAuthUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, payload: {userId, email, login, isAuth} });
 export const setCaptchaUrl = (url) => ({type: SET_CAPTCHA_URL, url: url });
-export const getAuthUserData = () => {
-    return (dispatch) => {
-        authAPI.me().then(data => {
+export const getAuthUserData = () => (dispatch) => {
+    return authAPI.me().then(data => {
             if (data.resultCode === 0) {
                 let {id, email, login} = data.data;
                 dispatch(setAuthUserData(id, email, login, true, null));
             }
         });
-    }
 }
 export const showCaptcha = () => {
     return (dispatch) => {
