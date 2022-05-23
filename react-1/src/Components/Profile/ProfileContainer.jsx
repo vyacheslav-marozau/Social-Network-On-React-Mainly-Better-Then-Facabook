@@ -2,8 +2,7 @@ import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getUserProfile, getUserStatus, updateStatus} from "../../redux/profile-reducer";
-import {Redirect, withRouter} from "react-router-dom";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import Dialogs from "../../Dialogs/Dialogs";
 
@@ -13,6 +12,9 @@ class ProfileContainer extends React.Component {
         if (!userId) {
             debugger;
             userId = this.props.authorizedUserId;
+            if (!userId) {
+                this.props.history.push("/login");
+            }
         }
         this.props.getUserProfile(userId);
         //setTimeout( () => {
