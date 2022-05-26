@@ -9,6 +9,9 @@ import {BrowserRouter} from "react-router-dom";
 //import {Provider} from './StoreContext';
 import {Provider} from 'react-redux';
 
+     setInterval(() => {
+        store.dispatch({type: "FAKE"})
+    }, 1000);
 //let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
