@@ -6,6 +6,7 @@ import Preloader from './../../common/Preloder/Preloader';
 import Jobtrue from './isLookingForAJobTrue.jpg';
 import Jobfalse from './isLookingForAJobFalse.jpg';
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
     const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
@@ -14,7 +15,7 @@ import ProfileStatus from './ProfileStatus';
             {/*<div><img src={mainBackground} alt='zakat' width='100.1%'/></div>*/}
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large} alt='Ava' />  {/*width="100" height="50"*/}
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
                 <h3>{props.profile.fullName}</h3> {/*Pastor J*/}
                 <p>{props.profile.aboutMe}</p>
                 <p>Date of Birth: 31 February</p>
