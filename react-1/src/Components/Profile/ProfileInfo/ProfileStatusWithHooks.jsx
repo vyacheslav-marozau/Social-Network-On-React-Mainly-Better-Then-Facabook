@@ -1,12 +1,16 @@
-import React, {createRef, useState} from 'react';
+import React, {createRef, useEffect, useState} from 'react';
 import s from './ProfileInfo.module.css';
 /*let arr = [0, () => {}];
 let [a, setA] = arr;*/
 const ProfileStatusWithHooks = (props) =>
     {
-
+        debugger;
         let [editMode, setEditMode] = useState(false);
         let [status, setStatus] = useState(props.status);
+        useEffect(() => {
+            debugger;
+            setStatus(props.status);
+        }, [props.status]);
         const activateEditMode = () => {
             setEditMode(true);
         }

@@ -23,7 +23,6 @@ const appReducer = (state = initialState, action) => {
 export const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
 export const initializeApp = () => (dispatch) => {
         let promise = dispatch(getAuthUserData());
-        debugger;
         // dispatch(somethingelse());
         // dispatch(somethingelse());
         Promise.all([promise])
@@ -39,7 +38,6 @@ export const authorization = (email, password, rememberMe) => (dispatch) => {
                 let {id, email, login} = response.data.data;
                 dispatch(getAuthUserData());
             } /*else if (response.data.resultCode === 10) {
-                debugger;
                 showCaptcha();
             }*/ else {
                 let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
