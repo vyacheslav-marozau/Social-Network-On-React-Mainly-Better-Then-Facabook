@@ -7,24 +7,30 @@ import {Textarea} from "../../common/FormsControls/FormsControls";
 //import {addPostActionCreator} from "../../../redux/profile-reducer";
 
 
+//window.props = [];
 
-    const MyPosts = (props) => {
-        let postsElements = props.posts.map(p => <Post message={p.message} key={p.id} likeCounter={p.likeCounter} />);
+const MyPosts = React.memo(props => {
+    // window.props.push(this.props);
+    console.log("RENDER YO");
+    // console.log(this.props);
+    let postsElements = props.posts.map(p => <Post message={p.message} key={p.id}
+                                                   likeCounter={p.likeCounter}/>);
 
-        let newPostElement = createRef();
-        let addNewPost = (values) => {
-            props.addPost(values.newPostBody);
-        }
-        return <div className={s.postsBlock}>
-            <h3>My Posts</h3>
-            <AddPostFormRedux onSubmit={addNewPost} />
-            <div className={s.posts}>
-                {postsElements}
-            </div>
-        </div>
-    
+    let newPostElement = createRef();
+    let addNewPost = (values) => {
+        props.addPost(values.newPostBody);
     }
-    const maxLength10 = maxLengthCreator(10);
+    return <div className={s.postsBlock}>
+        <h3>My Posts</h3>
+        <AddPostFormRedux onSubmit={addNewPost}/>
+        <div className={s.posts}>
+            {postsElements}
+        </div>
+    </div>
+
+});
+
+const maxLength10 = maxLengthCreator(10);
 const AddPostForm = (props) => {
         return <form onSubmit={props.handleSubmit}>
             <div>
