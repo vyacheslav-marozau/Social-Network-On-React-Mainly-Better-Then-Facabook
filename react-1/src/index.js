@@ -8,12 +8,12 @@ import {BrowserRouter} from "react-router-dom";
 //import StoreContext from "./StoreContext";
 //import {Provider} from './StoreContext';
 import {Provider} from 'react-redux';
-let h1 = document.createElement("h1");
+/*let h1 = document.createElement("h1");
 h1.innerHTML = "HELLO";
 document.querySelector("body")
     .appendChild(h1);
-React.createElement("h1", [React.createElement(App)]);
-/*     setInterval(() => {
+React.createElement("h1", [React.createElement(App)]);*/
+     /*setInterval(() => {
         store.dispatch({type: "FAKE"})
     }, 1000);*/
 //let rerenderEntireTree = (state) => {
