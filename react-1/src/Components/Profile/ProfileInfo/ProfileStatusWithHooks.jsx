@@ -4,7 +4,7 @@ import s from './ProfileInfo.module.css';
 let [a, setA] = arr;*/
 const ProfileStatusWithHooks = (props) =>
     {
-        debugger;
+        //debugger;
         let [editMode, setEditMode] = useState(false);
         let [status, setStatus] = useState(props.status);
         useEffect(() => {
