@@ -32,35 +32,10 @@ class App extends React.Component {
                     {<NavBarContainer/>}
                     <div className='app-wrapper-content'>
                         <Switch>
-                            <Route exact path='/dialogs'
-                                   render={() => <DialogsContainer
-                                       //newMessageText={props.state.dialogsPage.newMessageText}
-                                       //state={props.state.dialogsPage}
-                                       //dispatch={props.dispatch}
-                                       /*store={props.store}*/ />
-                                   }
-
-                                /*component={<DialogsContainer
-                                    //store={props.store}
-                                />}*//>
-                            <Route path='/profile/:userId?'
-                                   render={() => <ProfileContainer
-                                       //profilePage={props.state.profilePage}
-                                       //dispatch={props.dispatch}
-                                       /*store={props.store}*/
-                                   />}
-
-                                /*component={<ProfileContainer
-                                         //store={props.store}
-                                     />}*//>
-                            <Route path='/users'
-                                   render={() => <UsersContainer/>}
-                            />
-                            <Route path='/Login'
-                                   component={LoginPage}/>
-                            {/*<Route path='/login'
-                         render = {() => <LoginPage />*/}}
-                            />
+                            <Route exact path='/dialogs' render={() => <DialogsContainer/>}/>
+                            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                            <Route path='/users' render={() => <UsersContainer/>}/>
+                            <Route path='/Login' component={LoginPage}/>
                             {/*<Route path='/news'
                                   element={<News
                                       newsPage={props.state.newsPage}

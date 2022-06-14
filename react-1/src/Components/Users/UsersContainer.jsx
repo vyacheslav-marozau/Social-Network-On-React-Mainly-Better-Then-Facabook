@@ -8,7 +8,6 @@ import {
 } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from "./../common/Preloder/Preloader";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {
     getCurrentPage,
@@ -20,11 +19,13 @@ import {
 } from "../../redux/users-selectors";
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        const {currentPage, pageSize} = this.props;
+        this.props.getUsers(currentPage, pageSize);
     }
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        const {setCurrentPage, getUsers, pageSize} = this.props;
+        setCurrentPage(pageNumber);
+        getUsers(pageNumber, pageSize);
     };
     /*getUsers = () => {
         if (this.props.users.length === 0) {

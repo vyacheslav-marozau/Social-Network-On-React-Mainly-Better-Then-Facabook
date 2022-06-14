@@ -5,8 +5,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-//import StoreContext from "./StoreContext";
-//import {Provider} from './StoreContext';
 import {Provider} from 'react-redux';
 /*let h1 = document.createElement("h1");
 h1.innerHTML = "HELLO";

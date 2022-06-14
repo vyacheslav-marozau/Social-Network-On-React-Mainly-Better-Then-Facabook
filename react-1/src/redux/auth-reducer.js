@@ -1,7 +1,7 @@
 import {authAPI, profileAPI} from "../api/api";
 import * as axios from "axios";
 import {stopSubmit} from "redux-form";
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'samurai-network/auth/SET_USER_DATA';
 const SET_CAPTCHA_URL = 'SET_CAPTCHA_URL';
 
 let initialState = {
@@ -19,7 +19,7 @@ const authReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     ...action.payload,
-                    isAuth: true
+                    //isAuth: true
                 }
             }
             case SET_CAPTCHA_URL: {
@@ -35,13 +35,14 @@ const authReducer = (state = initialState, action) => {
 }
 export const setAuthUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, payload: {userId, email, login, isAuth} });
 export const setCaptchaUrl = (url) => ({type: SET_CAPTCHA_URL, url: url });
-export const getAuthUserData = () => (dispatch) => {
-    return authAPI.me().then(data => {
-            if (data.resultCode === 0) {
-                let {id, email, login} = data.data;
-                dispatch(setAuthUserData(id, email, login, true, null));
-            }
-        });
+export const getAuthUserData = () => async (dispatch) => {
+    let response = await authAPI.me();
+    /*.then(data => {*/
+    if (response.resultCode === 0) {
+        let {id, email, login} = response.data;
+        dispatch(setAuthUserData(id, email, login, true));
+    }
+    /*});*/
 }
 export const showCaptcha = () => {
     return (dispatch) => {
@@ -54,9 +55,9 @@ export const showCaptcha = () => {
 
     }
 }
-export const authorization = (email, password, rememberMe) => (dispatch) => {
-
-        authAPI.login(email, password, rememberMe).then(response => {
+export const authorization = (email, password, rememberMe) => async (dispatch) => {
+        let response = await authAPI.login(email, password, rememberMe);
+            /*.then(response => {*/
             //response.data.resultCode = 10;
             if (response.data.resultCode === 0) {
                 let {id, email, login} = response.data.data;
@@ -69,13 +70,13 @@ export const authorization = (email, password, rememberMe) => (dispatch) => {
                 dispatch(stopSubmit("login", {_error: message}));
             }
 
-        });
+        /*});*/
 }
-export const logout = () => (dispatch) => {
-    authAPI.logout().then(response => {
+export const logout = () => async (dispatch) => {
+    let response = await authAPI.logout();
+    console.log(response.data.resultCode);
         if (response.data.resultCode === 0) {
-            dispatch(setAuthUserData(null, null, null, false, null));
+            dispatch(setAuthUserData(null, null, null, false));
         }
-    });
 }
 export default authReducer;

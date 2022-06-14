@@ -8,24 +8,18 @@ import {Textarea} from "../../common/FormsControls/FormsControls";
 
 
 //window.props = [];
-var reverseFlag = false;
 const MyPosts = React.memo(props => {
-    console.log(props.posts);
-    // window.props.push(this.props);
     console.log("RENDER YO");
-    // console.log(this.props);
-    debugger;
     let postsElements =
         [...props.posts]
         .reverse()
         .map(p => <Post message={p.message} key={p.id} likeCounter={p.likeCounter}/>);
-    reverseFlag = true;
-    alert("reverseFlag = " + reverseFlag);
     console.log(postsElements);
     console.log(props.posts);
     let newPostElement = createRef();
     let addNewPost = (values) => {
         props.addPost(values.newPostBody);
+        values.newPostBody = "";
     }
     return <div className={s.postsBlock}>
         <h3>My Posts</h3>
