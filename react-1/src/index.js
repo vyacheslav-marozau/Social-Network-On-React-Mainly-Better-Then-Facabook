@@ -1,11 +1,12 @@
-import store from "./redux/redux-store";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom";
+/// import store from "./redux/redux-store";
+/// import {BrowserRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
+import SamuraiJSApp from "./App";
 /*let h1 = document.createElement("h1");
 h1.innerHTML = "HELLO";
 document.querySelector("body")
@@ -14,18 +15,7 @@ React.createElement("h1", [React.createElement(App)]);*/
      /*setInterval(() => {
         store.dispatch({type: "FAKE"})
     }, 1000);*/
-//let rerenderEntireTree = (state) => {
-    ReactDOM.render(
-        <React.StrictMode>
-            <BrowserRouter>
-                <Provider store={store} >
-                    <App/>
-                </Provider>
-            </BrowserRouter>
-        </React.StrictMode>,
-        document.getElementById('root'));
-//}
-//rerenderEntireTree(store.getState());
+ReactDOM.render(<React.StrictMode><SamuraiJSApp/></React.StrictMode>, document.getElementById('root'));
 
 /*store.subscribe(() => {
     let state = store.getState();
