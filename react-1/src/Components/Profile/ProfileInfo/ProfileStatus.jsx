@@ -1,5 +1,4 @@
 import React, {createRef} from 'react';
-import s from './ProfileInfo.module.css';
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
@@ -27,11 +26,11 @@ class ProfileStatus extends React.Component {
         if (prevProps.status !== this.props.status) {
             this.setState({status: this.props.status});
         }
-        console.log("ComponentDidUpdate");
+        // console.log("ComponentDidUpdate");
     }
 
     render() {
-        console.log("render");
+        // console.log("render");
         return (
             <div>
                 {!this.state.editMode &&
