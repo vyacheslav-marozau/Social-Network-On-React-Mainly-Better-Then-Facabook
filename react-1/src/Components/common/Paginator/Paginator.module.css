@@ -1,9 +1,15 @@
 .selectedPage {
     font-weight: bold;
+    border-color: black;
     cursor: pointer;
     margin: 0 8px 0 0;
 }
 .pointer {
     cursor: pointer;
-    margin: 0 8px 0 0;
+    margin: 0 8px 0 4px;
+    padding: 2px;
+    border: 1px solid orange;
+}
+.paginator {
+    margin: 10px;
 }

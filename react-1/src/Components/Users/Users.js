@@ -9,7 +9,7 @@ let Users = ({currentPage, onPageChanged, totalUsersCount, pageSize, users, ...p
         pages.push(i);
     }*/
     return <div>
-        <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount} onPageChanged={onPageChanged} pageSize={pageSize}/>
+        <Paginator currentPage={currentPage} totalItemsCount={totalUsersCount} onPageChanged={onPageChanged} pageSize={pageSize}/>
         {/*<button onClick={this.getUsers}>Get Users</button>*/}
         <div>
         {
