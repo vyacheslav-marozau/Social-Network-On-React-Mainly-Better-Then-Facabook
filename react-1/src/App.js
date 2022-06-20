@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
 import NavBarContainer from './Components/NavBar/NavBarContainer';
-//import Dialogs from "./Dialogs/Dialogs";
-import DialogsContainer from "./Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
-import ProfileContainer from "./Components/Profile/ProfileContainer";
 import {BrowserRouter, Route, Switch, withRouter} from "react-router-dom";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import LoginPage from "./../src/Components/login/loginContainer";
-//import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
 import {connect, Provider} from "react-redux";
-//import {getAuthUserData} from "./redux/auth-reducer"
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./Components/common/Preloder/Preloader";
 import store from "./redux/redux-store";
+import {withSuspense} from "./hoc/withSuspense";
+//import DialogsContainer from "./Dialogs/DialogsContainer";
+//import ProfileContainer from "./Components/Profile/ProfileContainer";
+const DialogsContainer = React.lazy(() => import('./Dialogs/DialogsContainer'));
+const ProfileContainer = React.lazy(() => import('./Components/Profile/ProfileContainer'));
 
 class App extends React.Component {
     componentDidMount() {
@@ -33,8 +33,19 @@ class App extends React.Component {
                     {<NavBarContainer/>}
                     <div className='app-wrapper-content'>
                         <Switch>
-                            <Route exact path='/dialogs' render={() => <DialogsContainer/>}/>
-                            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                            <Route exact path='/dialogs' render={
+                                withSuspense(DialogsContainer)
+                                /*() => {
+                                return <React.Suspense fallback={<div>Загрузка...</div>}>
+                                <DialogsContainer/>
+                                </React.Suspense>
+                            }*/}/>
+                            <Route path='/profile/:userId?' render={
+                                withSuspense(ProfileContainer)
+                                /*() => {
+                                return <React.Suspense fallback={<div>Загрузка...</div>}>
+                                <ProfileContainer/>
+                                </React.Suspense>}*/}/>
                             <Route path='/users' render={() => <UsersContainer/>}/>
                             <Route path='/Login' component={LoginPage}/>
                             {/*<Route path='/news'
