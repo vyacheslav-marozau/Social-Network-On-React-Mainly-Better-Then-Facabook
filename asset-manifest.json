@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/css/main.ada8f0aa.chunk.css",
+    "main.js": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/main.f8679370.chunk.js",
+    "main.js.map": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/main.f8679370.chunk.js.map",
+    "runtime-main.js": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/runtime-main.d6e9388e.js",
+    "runtime-main.js.map": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/runtime-main.d6e9388e.js.map",
+    "static/js/2.b645c531.chunk.js": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/2.b645c531.chunk.js",
+    "static/js/2.b645c531.chunk.js.map": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/2.b645c531.chunk.js.map",
+    "static/js/3.d8146f46.chunk.js": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/3.d8146f46.chunk.js",
+    "static/js/3.d8146f46.chunk.js.map": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/3.d8146f46.chunk.js.map",
+    "static/js/4.b63bff98.chunk.js": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/4.b63bff98.chunk.js",
+    "static/js/4.b63bff98.chunk.js.map": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/4.b63bff98.chunk.js.map",
+    "index.html": "/Social-Network-On-React-Simply-Better-Then-Facebook/index.html",
+    "static/css/main.ada8f0aa.chunk.css.map": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/css/main.ada8f0aa.chunk.css.map",
+    "static/js/2.b645c531.chunk.js.LICENSE.txt": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/js/2.b645c531.chunk.js.LICENSE.txt",
+    "static/media/Komisarenko_Avatar.bf05c605.png": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/media/Komisarenko_Avatar.bf05c605.png",
+    "static/media/Logo_New.75c63428.png": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/media/Logo_New.75c63428.png",
+    "static/media/Preloader.a7bdc211.gif": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/media/Preloader.a7bdc211.gif",
+    "static/media/isLookingForAJobFalse.3e35c0a5.jpg": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/media/isLookingForAJobFalse.3e35c0a5.jpg",
+    "static/media/isLookingForAJobTrue.09544ca4.jpg": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/media/isLookingForAJobTrue.09544ca4.jpg",
+    "static/media/zakat_na_kube.97d68b0f.jpg": "/Social-Network-On-React-Simply-Better-Then-Facebook/static/media/zakat_na_kube.97d68b0f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d6e9388e.js",
+    "static/js/2.b645c531.chunk.js",
+    "static/css/main.ada8f0aa.chunk.css",
+    "static/js/main.f8679370.chunk.js"
+  ]
+}

@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-1"]=this["webpackJsonpreact-1"]||[]).push([[3],{304:function(t,a,e){"use strict";e.r(a);var c=e(3),n=(e(1),e(131)),s=e(143),i=e(9),r=e(142),u=e(8),o=Object(u.d)(Object(i.b)((function(t){return{dialogsPage:Object(c.a)({},t.dialogsPage)}}),(function(t){return{addMessage:function(a){t(Object(n.a)(a))}}})),r.a)(s.a);a.default=o}}]);
+//# sourceMappingURL=3.d8146f46.chunk.js.map
