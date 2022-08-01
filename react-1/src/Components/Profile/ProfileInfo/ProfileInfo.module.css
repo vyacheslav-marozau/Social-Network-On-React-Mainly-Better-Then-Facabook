@@ -4,3 +4,11 @@
 .mainPhoto {
     width: 158px;
 }
+.contact {
+    padding-left: 10px;
+}
+.avatarBrowsePhoto {
+    width: 396px;
+    height: 135px;
+    background: url("./DownloadButton.png");
+}

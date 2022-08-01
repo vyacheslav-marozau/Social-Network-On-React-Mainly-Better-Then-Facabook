@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
-//import mainAvatar from './ava-scorpion-mortal-kombat-008.jpg'
+import downLoadButton from './DownloadButton.png'
 import mainBackground from './zakat_na_kube.jpg'
 import Preloader from './../../common/Preloder/Preloader';
 import Jobtrue from './isLookingForAJobTrue.jpg';
 import Jobfalse from './isLookingForAJobFalse.jpg';
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "./DefaultGirlAvatar.png";
-    const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+import Context from "react-redux/lib/components/Context";
+import ProfileDataForm from "./ProfileDataForm";
+    const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
+        let [editMode, setEditMode] = useState(false);
     if (!profile) {
         return <Preloader />
     }
@@ -18,33 +21,56 @@ import userPhoto from "./DefaultGirlAvatar.png";
                 savePhoto(e.target.files[0]);
             }
         }
-        return <div >
+        const onSubmit = (formData) => {
+            saveProfile(formData)
+            .then(() => {
+                setEditMode(false);
+            })
+        }
+        return <div>
             {/*<div><img src={mainBackground} alt='zakat' width='100.1%'/></div>*/}
-            <div className={s.descriptionBlock}>
-                <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt='Ava' />
-                {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-                <h3>{profile.fullName}</h3> {/*Pastor J*/}
-                <p>{profile.aboutMe}</p>
-                <p>Date of Birth: 31 February</p>
-                <p>City: London</p>
-                <p>Education: BSPU'12</p>
-                <img src={profile.lookingForAJob === true ? Jobtrue : Jobfalse} alt={'I am looking for a job'} width = '80px' height = '80px' />
-                <p>{profile.lookingForAJobDescription}</p>
-                <ul>
-                    <h3>Contacts</h3>
-                    <li>{profile.contacts.facebook}</li>
-                    <li>{profile.contacts.website}</li> {/*<p>WebSite: <a href="https://infinity-pizza.dx.am">Infinity-Pizza</a></p>*/}
-                    <li>{profile.contacts.vk}</li>
-                    <li>{profile.contacts.twitter}</li>
-                    <li>{profile.contacts.instagram}</li>
-                    <li>{profile.contacts.youtube}</li>
-                    <li>{profile.contacts.github}</li>
-                    <li>{profile.contacts.mainLink}</li>
-                </ul>  
-            </div>
-
+            <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt='Ava'/>
+            <br></br>
+            {isOwner && <input className={s.avatarBrowsePhoto} type={"file"} onChange={onMainPhotoSelected} />}
+            <br></br>
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+            {editMode
+                ? <ProfileDataForm initialValues={profile} onSubmit={onSubmit} profile={profile}  />
+                : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => {setEditMode(true)}}/>}
         </div>
     }
+    const ProfileData = ({profile, isOwner, goToEditMode}) => {
+        return <div className={s.descriptionBlock}>
+            {isOwner && <div><button onClick={goToEditMode}>Edit</button></div>}
+            <div>
+                <b>{profile.fullName}</b> <span> - - - Full Name</span>
+            </div>
+            <div>
+                <b>About Me: </b> {profile.aboutMe}
+            </div>
+            <p>Date of Birth: 31 February</p>
+            <p>City: London</p>
+            <p>Education: BSPU'12</p>
+            <div>
+                <b>Looking For A Job:</b>  <span>{profile.lookingForAJob ? "Yes" : "No" }</span>
+            </div>
+            <br></br>
+            <img src={profile.lookingForAJob === true ? Jobtrue : Jobfalse} title={profile.lookingForAJob === true ? 'YES' : 'NO'} alt={'I am looking for a job'} width = '80px' height = '80px' />
+            {!profile.lookingForAJob &&
+            <div>
+                <b>My professional skills</b> : <span>{profile.lookingForAJobDescription}</span>
+            </div>}
+            <div>
+                <b>Contacts</b> : {Object.keys(profile.contacts).map(key => {
+                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+            })}
+            </div>
 
+            {/*<p>WebSite: <a href="https://infinity-pizza.dx.am">Infinity-Pizza</a></p>*/}
+        </div>
+
+    }
+    const Contact = ({contactTitle, contactValue}) => {
+        return <div className={s.contact}><b>{contactTitle}</b> : {contactValue}</div>
+    }
 export default ProfileInfo;
