@@ -1,8 +1,8 @@
-import {authAPI, profileAPI} from "../api/api";
+import {authAPI, profileAPI, securityAPI} from "../api/api";
 import * as axios from "axios";
 import {stopSubmit} from "redux-form";
 const SET_USER_DATA = 'samurai-network/auth/SET_USER_DATA';
-const SET_CAPTCHA_URL = 'SET_CAPTCHA_URL';
+const GET_CAPTCHA_URL_SUCCESS = 'samurai-network/auth/GET_CAPTCHA_URL_SUCCESS';
 
 let initialState = {
     userId: null,
@@ -10,23 +10,17 @@ let initialState = {
     login: null,
     isAuth: false,
     password: null,
-    url: null
+    captchaUrl: null  // if null, then captcha isn't requared
     };
 
 const authReducer = (state = initialState, action) => {
         switch (action.type) {
-            case SET_USER_DATA: {
+            case SET_USER_DATA:
+            case GET_CAPTCHA_URL_SUCCESS: {
                 return {
                     ...state,
-                    ...action.payload,
+                    ...action.payload
                     //isAuth: true
-                }
-            }
-            case SET_CAPTCHA_URL: {
-                return {
-                    ...state,
-                    url: action.url,
-                    isAuth: true
                 }
             }
             default:
@@ -34,7 +28,9 @@ const authReducer = (state = initialState, action) => {
         }
 }
 export const setAuthUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, payload: {userId, email, login, isAuth} });
-export const setCaptchaUrl = (url) => ({type: SET_CAPTCHA_URL, url: url });
+export const getCaptchaUrlSuccess = (captchaUrl) => ({
+    type: GET_CAPTCHA_URL_SUCCESS, payload:
+    {captchaUrl} });
 export const getAuthUserData = () => async (dispatch) => {
     let response = await authAPI.me();
     /*.then(data => {*/
@@ -44,28 +40,22 @@ export const getAuthUserData = () => async (dispatch) => {
     }
     /*});*/
 }
-export const showCaptcha = () => {
-    return (dispatch) => {
-        authAPI.getCaptcha().then(data => {
-            debugger;
-            console.log(data);
-            let url = data.url;
-            dispatch(setCaptchaUrl(url));
-        });
-
-    }
+export const getCaptchaUrl = () => async (dispatch) => {
+    const response = await securityAPI.getCaptchaUrl();
+    console.log("response", response);
+    const captchaUrl = response.data.url;
+            dispatch(getCaptchaUrlSuccess(captchaUrl));
 }
-export const authorization = (email, password, rememberMe) => async (dispatch) => {
-        let response = await authAPI.login(email, password, rememberMe);
-            /*.then(response => {*/
-            //response.data.resultCode = 10;
+export const authorization = (email, password, rememberMe, captcha) => async (dispatch) => {
+        let response = await authAPI.login(email, password, rememberMe, captcha);
             if (response.data.resultCode === 0) {
+                // success get auth data
                 let {id, email, login} = response.data.data;
                 dispatch(getAuthUserData());
-            } /*else if (response.data.resultCode === 10) {
-                debugger;
-                showCaptcha();
-            }*/ else {
+            } else {
+                if (response.data.resultCode === 10) {
+                    dispatch(getCaptchaUrl());
+                }
                 let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
                 dispatch(stopSubmit("login", {_error: message}));
             }
