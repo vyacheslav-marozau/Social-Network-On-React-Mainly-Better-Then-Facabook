@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from "./login";
 import {connect} from "react-redux";
-import {logout, setAuthUserData, setCaptchaUrl} from "../../redux/auth-reducer";
+import {logout, setAuthUserData, getCaptchaUrl} from "../../redux/auth-reducer";
 
 class LoginContainer extends React.Component {
     componentDidMount() {
@@ -16,6 +16,6 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     login: state.auth.login,
     id: state.auth.id,
-    url: state.auth.url
+    captchaUrl: state.auth.captchaUrl
 });
-export default connect(mapStateToProps, {setAuthUserData, logout, setCaptchaUrl}) (LoginContainer);
+export default connect(mapStateToProps, {setAuthUserData, logout, getCaptchaUrl}) (LoginContainer);

@@ -78,8 +78,8 @@ export const authAPI = {
                 return response.data
             });
     },
-    login(email, password, rememberMe = false) {
-        return instance.post(`/auth/login`, { email, password, rememberMe});
+    login(email, password, rememberMe = false, captcha = null) {
+        return instance.post(`/auth/login`, { email, password, rememberMe, captcha});
             /*.then(response => {
                 //debugger;
                 return response.data
@@ -87,12 +87,14 @@ export const authAPI = {
     },
     logout() {
         return instance.delete(`/auth/login`);
-    },
-    getCaptcha() {
-        return instance.get(`/security/get-captcha-url`).then(response => {
+    }
+}
+export const securityAPI = {
+    getCaptchaUrl() {
+        return instance.get(`security/get-captcha-url`);/*.then(response => {
             debugger;
             console.log(response.data)
             return response.data
-        })
+        })*/
     }
 }
