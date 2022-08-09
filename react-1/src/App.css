@@ -14,7 +14,27 @@
     grid-area: c;
     background-color: rgb(250, 250, 250);
 }
-
+.error-pop-up {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background: #2dff1eb3;
+    border: 2px dashed coral;
+    color: red;
+    font-weight: bold;
+    font-family: "Comic Sans MS", sans-serif;
+    border-radius: 50px;
+    width: 300px;
+    height: 150px;
+    transition: all 0.8s ease-out;
+    text-align: center;
+    vertical-align: center;
+}
+.activate-pop-up {
+    top: 25%;
+    left: 25%;
+    transition: all 0.8s ease-in-out;
+}
 
 
 /*

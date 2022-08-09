@@ -33,6 +33,8 @@ import ProfileDataForm from "./ProfileDataForm";
             <br></br>
             {isOwner && <input className={s.avatarBrowsePhoto} type={"file"} onChange={onMainPhotoSelected} />}
             <br></br>
+            <br></br>
+            <br></br>
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             {editMode
                 ? <ProfileDataForm initialValues={profile} onSubmit={onSubmit} profile={profile}  />
