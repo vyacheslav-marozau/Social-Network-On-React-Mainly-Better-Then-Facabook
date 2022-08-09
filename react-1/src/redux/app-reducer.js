@@ -3,9 +3,11 @@ import * as axios from "axios";
 import {stopSubmit} from "redux-form";
 import {getAuthUserData} from "./auth-reducer";
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
+const ADD_GLOBAL_ERROR = 'ADD_GLOBAL_ERROR';
 
 let initialState = {
-    initialized: false
+    initialized: false,
+    globalError: null
     };
 
 const appReducer = (state = initialState, action) => {
@@ -16,11 +18,26 @@ const appReducer = (state = initialState, action) => {
                     initialized: true
                 }
             }
+            case ADD_GLOBAL_ERROR: {
+                return {
+                    ...state,
+                    globalError: action.globalError
+                }
+            }
             default:
                 return state;
         }
 }
 export const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
+export const addGlobalError = (globalError) => ({type: ADD_GLOBAL_ERROR, globalError: globalError});
+
+export const handleUnhandledErrors = (error) => (dispatch) => {
+    debugger;
+    dispatch(addGlobalError(error));
+    setTimeout(() => {
+        dispatch(addGlobalError(null));
+    }, "8000");
+}
 export const initializeApp = () => (dispatch) => {
         let promise = dispatch(getAuthUserData());
         // dispatch(somethingelse());
